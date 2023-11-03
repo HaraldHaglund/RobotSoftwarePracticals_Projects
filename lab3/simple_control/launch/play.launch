@@ -1,0 +1,13 @@
+<launch>
+<!-- The gazebo (Mirte simulation) enviroment -->
+<include file="$(find mirte_gazebo)/launch/lab3_ros_assignment.launch" />
+
+<!-- Start rosbag play -->
+
+<node
+pkg="rosbag"
+type="play"
+name="play_node"
+args="$(find simple_control)/rosbag/teleop.bag"
+/>
+</launch>

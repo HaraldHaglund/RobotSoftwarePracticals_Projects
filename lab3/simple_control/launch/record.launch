@@ -1,0 +1,17 @@
+<launch>
+
+<!-- The gazebo (Mirte simulation) enviroment -->
+<include file="$(find mirte_gazebo)/launch/lab3_ros_assignment.launch" />
+    <!-- Keyboard teleop -->
+<include file="$(find mirte_teleop)/launch/teleop_keyboard.launch"/>
+   
+<!-- Start rosbag-record-->
+<node
+pkg="rosbag"
+type="record" 
+name="record_node"
+args="-O $(find simple_control)/rosbag/teleop.bag /mirte/mobile_base_controller/cmd_vel"
+launch-prefix="xterm -e "
+/>
+
+</launch>

@@ -1,0 +1,22 @@
+<launch>
+<!-- Parameters, change these values as needed! -->
+<!-- NOTE: linear_velocity_steering should have the smallest value out of the three -->
+<param name="linear_velocity_forward" type="double" value="3"/>
+<param name="linear_velocity_steering" type="double" value="0.3"/>
+<param name="angular_velocity_steering" type="double" value="1"/>
+<param name="threshold_intensity" type="double" value="3"/>
+
+
+<!-- The gazebo (Mirte simulation) enviroment -->
+ <include file="$(find mirte_gazebo)/launch/lab3_ros_assignment.launch" /> 
+
+<!-- Start simple_control_node -->
+<node
+ pkg="simple_control"
+ type="simple_control_simple_control_node"
+ name="simple_control_node"
+ launch-prefix="xterm -e "
+ respawn="true"
+ output="screen"
+/>
+</launch>

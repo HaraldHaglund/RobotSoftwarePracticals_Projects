@@ -1,0 +1,21 @@
+stages:
+  - test
+
+lab3:
+  variables:
+    LAB: lab3
+  image: "localhost:5000/ro47003_docker_image/builder"
+  only:
+    - schedules
+  stage: test
+  script:
+    - echo "This won't be run!"
+  artifacts:
+    paths:
+      - ./artifacts
+    reports:
+      junit: artifacts/report.xml
+  cache:
+    key: $LAB
+    paths:
+      - ./cache

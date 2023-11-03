@@ -1,0 +1,2 @@
+*.bag
+Ignore this file. Its only needed so that git includes the rosbag folder
